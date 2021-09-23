@@ -7,6 +7,8 @@ FROM
     FROM
         Content_Metadata metadata
     LEFT JOIN Page_Impression impressions ON metadata.Content_id = impressions.Content_id
+    WHERE
+        impressions.Timestamp BETWEEN ’09 - 20 - 2021’ AND ’09 - 23 - 2021’
     GROUP BY metadata.Content_id) sub_table_1
 ORDER BY Viewer_counts DESC
 LIMIT 5;
